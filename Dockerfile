@@ -22,7 +22,7 @@ RUN conda create -n trellis2 python=3.10 -y && \
 
 # 2. 安装--basic依赖（含系统依赖libjpeg-dev、第三方git库、pillow-simd等）
 RUN /bin/bash -c "source ~/.bashrc && \
-    apt-get update && apt-get install -y --no-install-recommends libjpeg-dev git && \
+    apt-get update && apt-get install -y --no-install-recommends libjpeg-dev git gcc && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
     pip install imageio imageio-ffmpeg tqdm easydict opencv-python-headless ninja trimesh transformers gradio==6.0.1 tensorboard pandas lpips zstandard && \
     pip install git+https://github.com/EasternJournalist/utils3d.git@9a4eb15e4021b67b12c460c7057d642626897ec8 && \
